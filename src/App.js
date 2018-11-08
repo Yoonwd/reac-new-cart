@@ -15,7 +15,7 @@ class App extends Component {
   onAddToCart(p) {
     this.setState({
       items: [...this.state.items, p],
-      total: []
+      total: [...this.state.total, p]
     });
   }
 

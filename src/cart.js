@@ -22,7 +22,11 @@ export default props => (
                         ))}
                     </ul>
                     <div className="cart-total">
-                            {props.price}
+                            {cart.total.map((t) => (
+                                <div className="total-price">
+                                    {t.price}
+                                </div>
+                            ))}
                     </div>
                 </div>
             )}
