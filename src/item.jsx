@@ -9,7 +9,7 @@ export default props => (
         {/* cart 를 사용한 이유는?? 어디서 왔나?? */}
         {cart => (
                 <div className="card" style={{ margin: ".5em", width:"20%", display: "inline-block" }}>
-                    <div className="card-iamge cyan lighten-5">
+                    <div className="card-iamge">
                         <img src={productImg} alt="milk"/>
                     </div>
                     <div className="card-content grey">
