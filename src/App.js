@@ -7,20 +7,19 @@ import { CartContext } from './context';
 class App extends Component {
   state = {
     items: [],
-    total: []
+    total: 0
   };
 
-  onAddToCart = this.onAddToCart.bind(this);
   // 리스트에서 카트로 보내는 함수
+  onAddToCart = this.onAddToCart.bind(this);
   onAddToCart(p) {
     this.setState({
-      items: [...this.state.items, p],
-      total: [...this.state.total, p]
+      items: [...this.state.items, p]
     });
   }
 
+  // 카트에서 삭제하는 함수
   onRemoveFromCart = this.onRemoveFromCart.bind(this);
-  //카트에서 삭제하는 함수
   onRemoveFromCart(i) {
     const newArray = [...this.state.items];
     newArray.splice(i, 1);
@@ -30,6 +29,14 @@ class App extends Component {
     });
   } 
 
+  // 카트 합계를 계산하는 함수
+  calculateTotal = this.calculateTotal.bind(this);
+  calculateTotal(price) {
+    this.setState({
+      total: [...this.state.total + price]
+    })
+  }
+
   render() {
     return (
       <CartContext.Provider
@@ -37,7 +44,8 @@ class App extends Component {
           items: this.state.items,
           total: this.state.total,
           onAddToCart: this.onAddToCart,
-          onRemoveFromCart: this.onRemoveFromCart
+          onRemoveFromCart: this.onRemoveFromCart,
+          calculateTotal: this.calculateTotal
         }}
       >
         <div className="App">

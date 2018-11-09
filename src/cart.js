@@ -1,5 +1,15 @@
-import React from "react";
+import React, { Component } from 'react';
 import { CartContext } from './context';
+
+class Total extends Component {
+    render() {
+        return(
+            <div>
+                TOTAL : {this.props.total}
+            </div>
+        );
+    }
+}
 
 export default props => (
     <div>
@@ -21,13 +31,16 @@ export default props => (
                             </li>
                         ))}
                     </ul>
-                    <div className="cart-total">
-                            {cart.total.map((t) => (
+                    {/* 안되는 코드 1, 이유는?? */}
+                    {/* <div className="cart-total">
+                            {cart.total.map((price) => (
                                 <div className="total-price">
-                                    {t.price}
+                                    합계: 
+                                    {price.total}
                                 </div>
                             ))}
-                    </div>
+                    </div> */}
+                    <Total total={props.total}/>
                 </div>
             )}
         </CartContext.Consumer>
