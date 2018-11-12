@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import { CartContext } from './context';
 
 class Total extends Component {
+
+  
+    
+    
     render() {
+        console.log('cart.js total', this.props.total) //undefined 가 나오는 걸 알수 있음.. 제대로 안내려온다는건데, 토탈의 위치를 옮겨 보면?
         return(
             <div>
-                TOTAL : {this.props.total}
+                {/* TOTAL : {this.props.total} */}
             </div>
-        );
+        )
     }
 }
 
@@ -22,6 +27,7 @@ export default props => (
                         {cart.items.map((p, i) => (
                             <li className="cart-item">
                                 {p.title}{" "}
+                                {p.price}
                                 <button
                                     className="pink"
                                     onClick={() => cart.onRemoveFromCart(i)}
@@ -40,7 +46,7 @@ export default props => (
                                 </div>
                             ))}
                     </div> */}
-                    <Total total={props.total}/>
+                    {/* <Total total={props.total}/> */}
                 </div>
             )}
         </CartContext.Consumer>
