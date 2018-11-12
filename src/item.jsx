@@ -20,7 +20,7 @@ export default props => (
                             <div className="card-action">
                                 <button
                                     className="addButton"
-                                    onClick={()=> {cart.onAddToCart(props); cart.calculateTotal(props)}}
+                                    onClick={()=> {cart.onAddToCart(props); }}
                                 >
                                     카트에 담기 
                                 </button>
